@@ -612,17 +612,17 @@ if (onnxruntime_BUILD_SHARED_LIB)
     endif()
   endif()
   set(onnxruntime_shared_lib_test_LIBS onnxruntime_mocked_allocator onnxruntime_test_utils onnxruntime_common
-          onnx_proto)
+          onnx_proto onnxruntime_framework onnxruntime_mlas onnx)
   if(onnxruntime_USE_NSYNC)
     list(APPEND onnxruntime_shared_lib_test_LIBS nsync_cpp)
   endif()
   AddTest(DYN
           TARGET onnxruntime_shared_lib_test
           SOURCES ${onnxruntime_shared_lib_test_SRC}
-          LIBS ${onnxruntime_shared_lib_test_LIBS}
-          protobuf::libprotobuf
+          LIBS ${onnxruntime_shared_lib_test_LIBS} protobuf::libprotobuf
           DEPENDS ${all_dependencies}
   )
+  onnxruntime_add_include_to_target(onnxruntime_shared_lib_test onnx)  
 endif()
 
 if (onnxruntime_BUILD_SERVER)

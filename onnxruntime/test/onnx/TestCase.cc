@@ -1,8 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-//TODO: switch to use onnxruntime public api
-
 #include "TestCase.h"
 #include <fstream>
 #include <memory>
