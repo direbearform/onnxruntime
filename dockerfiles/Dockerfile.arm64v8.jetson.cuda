@@ -48,12 +48,9 @@ RUN ./build.sh ${BUILDARGS} --update --build \
     --use_cuda \
     --cudnn_home /usr/local/cuda \
     --cuda_home /usr/local/cuda \
-    --use_tensorrt \
-    --tensorrt_home /usr/src/tensorrt \
     --build_shared_lib \
     --enable_pybind --build_wheel
 
 # Build Output
 RUN ls -l /code/onnxruntime/build/Linux/${BUILDTYPE}/*.so
 RUN ls -l /code/onnxruntime/build/Linux/${BUILDTYPE}/dist/*.whl
-
